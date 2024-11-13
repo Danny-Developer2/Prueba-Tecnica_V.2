@@ -1,0 +1,65 @@
+<div class="vehicles-container">
+    <h2>Catalog of Vehicles</h2>
+    
+    <div class="vehicle" *ngFor="let vehicle of vehicles">
+      
+      <div *ngFor="let image of vehicle.images">
+       
+         
+            <a href="vehicle-detail/{{vehicle.id}}">
+                <img [src]="image.url" alt="Vehicle Image" class="vehicle-image" />
+            </a>
+              
+         
+        
+          
+        
+      </div>
+      
+      
+      <h3>{{ vehicle.model }}</h3>
+      
+      
+      <p>Placas: {{ vehicle.placas }}</p>
+      <p>Doors: {{ vehicle.doors }}</p>
+    </div>
+</div>
+
+
+  <style>
+    
+.vehicles-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.vehicle {
+  display: inline-block;
+  margin: 20px;
+  text-align: center;
+  width: 200px;
+}
+
+.vehicle-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+p {
+  font-size: 1rem;
+  color: #555;
+}
+
+  </style>

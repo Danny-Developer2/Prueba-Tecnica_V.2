@@ -1,0 +1,127 @@
+<div *ngIf="vehicule; else loading">
+    <h2>Detalles del vehículo</h2>
+
+    
+    <div *ngFor="let image of vehicule.images">
+        <img [src]="image.url" alt="Imagen del vehículo" class="vehicle-image" />
+    </div>
+
+    
+    <div class="vehicle-info">
+        <p><strong>ID:</strong> {{ vehicule.id }}</p>
+        <p><strong>Modelo:</strong> {{ vehicule.model }}</p>
+        <p><strong>Puertas:</strong> {{ vehicule.doors }}</p>
+        <p><strong>Placas:</strong> {{ vehicule.placas }}</p>
+    </div>
+
+    <div class="action-buttons">
+        <a href="update-vehicule/{{vehicule.id}}"><button >Actualizar datos de auto</button></a>
+        <a href="update-vehicule-images/{{vehicule.id}}"><button >Actualizar imagen</button></a>
+        <a href="vehicle-delete/{{vehicule.id}}"><button >Eliminar coche</button></a>
+        <!-- <a href="update-images/{{vehicule.id}}"><button >Agregar imagenes coche</button></a> -->
+       
+
+    </div>
+</div>
+
+
+<ng-template #loading>
+    <p class="loading-text">Cargando detalles del vehículo...</p>
+</ng-template>
+
+  <style>
+    *{
+        box-sizing: border-box;
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        transition: background-color 0.3s ease;
+        color: #555;
+        line-height: 1.5;
+    }
+    .p  {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  height: 100px; 
+  text-align: center; 
+}
+
+
+    
+h2 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+
+.vehicle-image {
+  height: 30%;
+  width: 30%;
+  display: block;
+  margin: auto;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+
+.vehicle-info {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+
+.vehicle-info p {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.vehicle-info strong {
+  font-weight: bold;
+  color: #444;
+}
+
+
+.loading-text {
+  text-align: center;
+  font-size: 18px;
+  color: #777;
+  margin-top: 20px;
+}
+.action-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    padding: 10px 5px;
+    font-size: 15px;
+    cursor: pointer;
+    border: none;
+    margin: auto;
+    display: block;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:active {
+    background-color: #004494;
+}
+
+
+  </style>
